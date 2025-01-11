@@ -2,11 +2,9 @@ import axios from "axios";
 import { postRequestEvent, element as $, moneyFormat } from "mmuo";
 import { DisplayAsToast } from "ije";
 
-async function fetchProducts(url, data = null, suppressError = false) {
+async function fetchProducts(url) {
     try {
-        const response = await axios.get(url, {
-            params: data,
-        });
+        const response = await axios.get(url);
         return response.data;
     } catch (error) {
         let message =
@@ -46,9 +44,9 @@ function getProductsToDisplay() {
                 }' class="btn btn-primary btn-sm">Edit</a></td>
             `;
                 tableBody.appendChild(row);
-
-                $(".total-value", false).text(moneyFormat(total, "NGN"));
             });
+
+            $(".total-value", false).text(moneyFormat(total, "NGN"));
         }
     });
 }

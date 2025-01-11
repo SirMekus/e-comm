@@ -10,7 +10,8 @@ class PayableItem extends Model
 {
     protected $guarded = [];
     protected $appends = [
-        'created_at_formatted', 'amount_formatted',
+        'created_at_formatted', 
+        'amount_formatted',
     ];
 
     // public function getRouteKeyName()
